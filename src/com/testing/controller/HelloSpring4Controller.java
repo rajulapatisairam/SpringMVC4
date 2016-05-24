@@ -14,6 +14,13 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class HelloSpring4Controller {
  
+	@RequestMapping("/ss")  
+	  public ModelAndView sayHello2() {  
+	   String message = "it's for all requests";  
+	   System.out.println("\n In Controller Class ");
+	   return new ModelAndView("other", "message", message);  
+	  }  
+	
  @RequestMapping("/hello")  
   public ModelAndView sayHello() {  
    String message = "Sairam 1st Spring Practice Message ";  
