@@ -7,6 +7,8 @@
 <title>Welcome</title>
 </head>
 <body>
-	<center>Welcome ${loggedInUser}</center>
+	<center>Welcome ${loggedInUser}</center> <br>
+	${messageIs}
+	<br> My Name : ${user.profession}
 </body>
 </html>

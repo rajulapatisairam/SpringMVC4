@@ -3,11 +3,15 @@
  */
 package com.testing.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -42,16 +46,23 @@ public class HelloSpring4Controller {
   }
  
  @RequestMapping(value="/login",method=RequestMethod.GET)
- public ModelAndView displayLogin(HttpServletRequest request, HttpServletResponse response)
+ public ModelAndView displayLogin(HttpServletRequest request, HttpServletResponse response,ModelMap modelMap)
  {
-	 System.out.println(" in login Mehod Get ");
+	 System.out.println(" in login Mehod Get Method ");
  	ModelAndView model = new ModelAndView("login");
+ 	List<String> professionList = new ArrayList<String>();
+    professionList.add("Developer");
+    professionList.add("Designer");
+    professionList.add("IT Manager");
+    
+    modelMap.put("professionList", professionList);
  	LoginBean loginBean = new LoginBean();
  	model.addObject("loginBean", loginBean);
  	return model;
  }
  @RequestMapping(value="/login",method=RequestMethod.POST)
- public ModelAndView executeLogin(HttpServletRequest request, HttpServletResponse response, @ModelAttribute("loginBean")LoginBean loginBean)
+ public ModelAndView executeLogin(HttpServletRequest request, HttpServletResponse response,
+		 @ModelAttribute("loginBean")LoginBean loginBean,ModelMap modelMap)
  {
 	 
 	 System.out.println(" in login Mehod Post ");
@@ -62,8 +73,10 @@ public class HelloSpring4Controller {
  		if(isValidUser)
  		{
  			System.out.println("User Login Successful");
+ 			modelMap.addAttribute("messageIs", "it's from Controller Class");
  			request.setAttribute("loggedInUser", loginBean.getUsername());
  			model = new ModelAndView("welcome");
+ 			model.addObject("user",loginBean);
  		}
  		else
  		{

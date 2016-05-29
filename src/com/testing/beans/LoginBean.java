@@ -4,6 +4,8 @@ public class LoginBean {
 	
 	private String username;
 	private String password;
+	private String profession;	
+	
 	public String getUsername() {
 		return username;
 	}
@@ -16,7 +18,11 @@ public class LoginBean {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public String getProfession() {
+		return profession;
+	}
+	public void setProfession(String profession) {
+		this.profession = profession;
+	}
 	
-	
-
 }
