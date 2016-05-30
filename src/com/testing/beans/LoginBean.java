@@ -1,8 +1,13 @@
 package com.testing.beans;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 public class LoginBean {
-	
+	@NotNull(message="Please Enter User Name")
 	private String username;
+    @NotNull
+    @Size(max=10,min=6)
 	private String password;
 	private String profession;	
 	
