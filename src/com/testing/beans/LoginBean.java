@@ -3,8 +3,10 @@ package com.testing.beans;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class LoginBean {
-	@NotNull(message="Please Enter User Name")
+	@NotEmpty(message = "User Name Not be Empty")
 	private String username;
     @NotNull
     @Size(max=10,min=6)

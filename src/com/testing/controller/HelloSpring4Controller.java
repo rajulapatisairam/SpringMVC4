@@ -121,6 +121,11 @@ public class HelloSpring4Controller {
  		{
  			model = new ModelAndView("login");
  model.addObject("loginBean", loginBean);
+ List<String> professionList = new ArrayList<String>();
+ professionList.add("Developer");
+ professionList.add("Designer");
+ professionList.add("IT Manager");
+ modelMap.put("professionList", professionList);
  			request.setAttribute("message", "Invalid credentials!!");
  		}
 

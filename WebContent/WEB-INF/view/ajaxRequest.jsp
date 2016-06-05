@@ -62,7 +62,7 @@
 <div class="container">
 	<footer>
 		<p>
-			© <a href="http://www.mkyong.com">Mkyong.com</a> 2015
+			© <a href="http://www.javanotepad.com">javanotepad.com</a> 2016
 		</p>
 	</footer>
 </div>
